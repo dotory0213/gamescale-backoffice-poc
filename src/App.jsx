@@ -101,6 +101,15 @@ function App() {
   // Add Root Page
   const handleAddRoot = () => {
     const newNav = [...navData];
+
+    // Initialize section if it doesn't exist (e.g. fresh start or load error)
+    if (!newNav[sectionIndex]) {
+      newNav[sectionIndex] = {
+        name: 'Getting Started', // Default section name
+        items: []
+      };
+    }
+
     const items = newNav[sectionIndex].items;
     const newItem = {
       name: `New Page`,
